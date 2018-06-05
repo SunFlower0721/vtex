@@ -1,35 +1,22 @@
-\NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{tarquinst}
-              [2014/09/29 v1.4h
- Standard LaTeX document class]
+\NeedsTeXFormat{LaTeX2e}%[1995/12/01]
+\ProvidesClass{tarquinst}[2018/06/05 Tarquin class]
  
 % \renewcommand{\normalsize}{\fontsize{10pt}{12pt}\selectfont}
  
 \newcommand\@ptsize{}
-\newif\if@restonecol
-\newif\if@titlepage
-\newif\if@chapterpage
-\@titlepagefalse
-%\newif\if@openright
-%\newif\if@mainmatter \@mainmattertrue
-\if@compatibility\else
+%
   \DeclareOption{squaresize}
  {\setlength\paperheight {160mm}%
  	\setlength\paperwidth  {160mm}
  \AtBeginDvi{\special{papersize=160mm,160mm}}}
- \fi
- %
- \if@compatibility
+%
  \renewcommand\@ptsize{0}
- \else
  \DeclareOption{10pt}{\renewcommand\@ptsize{0}}
- \fi
  \DeclareOption{11pt}{\renewcommand\@ptsize{1}}
  \DeclareOption{12pt}{\renewcommand\@ptsize{2}}
  \DeclareOption{14pt}{\renewcommand\@ptsize{4}}
-\if@compatibility\else
+%
 \DeclareOption{oneside}{\@twosidefalse \@mparswitchfalse}
-\fi
 \DeclareOption{twoside}{\@twosidetrue  \@mparswitchtrue}
  %
  \ExecuteOptions{squaresize,11pt,twoside}%12pt,oneside,onecolumn,final
@@ -39,108 +26,93 @@
  %\parskip=0pt
  %\baselineskip=0pt
  \setlength{\textwidth}{136mm}
- \setlength{\textheight}{130mm}
+ \setlength{\textheight}{140mm}
  \setlength{\hoffset}{-1in}
  \setlength{\oddsidemargin}{14mm}	
  \setlength{\evensidemargin}{10mm}
  \setlength{\voffset}{-1in}
-\setlength{\headheight}{14pt}
+%\setlength{\headheight}{14pt}
+\setlength{\headsep}{20pt}
 % \setlength{\footskip}{10pt}
+%
 \RequirePackage{tgpagella}
 %\RequirePackage[T1]{fontenc} 
-% \pagestyle{ruled}
- %
- %
 %
 \newenvironment{changemargin}{%
 	\begin{list}{}{%
-\setlength{\rightmargin}{4mm}
+\setlength{\rightmargin}{4mm}%
 		}%
 		\item[]}{\end{list}}
-
-
+%
+\def\chapter@font{\fontsize{24}{28.8}\selectfont}
+\def\question@font{\fontsize{13.5pt}{16pt}\selectfont}
+\def\answer@font{\fontsize{11pt}{13pt}\selectfont}
+\def\running@font{\fontsize{11pt}{13pt}\selectfont}
+%
 \newcommand*\chaptermark[1]{}
-%\newcounter {chapter}
-%\renewcommand \thechapter {\@arabic\c@chapter}
-%\newcommand\@chapapp{\chaptername}
-%\newcommand\chaptername{Chapter}
-\newcommand\chapter{%\if@openright\cleardoublepage\else\clearpage\fi
+\newcommand\chapter{
 	\thispagestyle{empty}%
-	\global\@topnum\z@
-	\@afterindentfalse
+%	\global\@topnum\z@
+%	\@afterindentfalse
 	\secdef\@chapter\@schapter}
-\def\@chapter[#1]#2{
-%	\ifnum \c@secnumdepth >\m@ne
-%	\if@mainmatter
-%	\refstepcounter{chapter}%
-%	%\typeout{\@chapapp\space\thechapter.}%
-%%	\addcontentsline{toc}{chapter}%
-%	{\protect\numberline{\thechapter}#1}%
-%	\else
-%%	\addcontentsline{toc}{chapter}{#1}%
-%	\fi
-%	\else
-%%	\addcontentsline{toc}{chapter}{#1}%
-%	\fi
+\def\@chapter[#1]#2{%
 	\chaptermark{#1}%
-%	\addtocontents{lof}{\protect\addvspace{10\p@}}%
-%	\addtocontents{lot}{\protect\addvspace{10\p@}}%
 	\@makechapterhead{#2}%
-	\@afterheading}
+%	\@afterheading
+}
 \def\@makechapterhead#1{%
-%	\vspace*{50\p@}%
-	{\parindent \z@ \raggedright \normalfont
-%		\ifnum \c@secnumdepth >\m@ne
-%		\if@mainmatter
-%		\huge\bfseries \@chapapp\space \thechapter
-%		\par\nobreak
-%		\vskip 20\p@
-%		\fi
-%		\fi
+	\vspace*{48\p@}%
+	{%\parindent \z@ \raggedright% \normalfont
 		\interlinepenalty\@M
-		\Huge%
-		 %\fontsize{24pt}{12pt}\selectfont%
-		 \centering #1\par\nobreak
-		\vskip 10\p@
+		 \centering\chapter@font{#1}%\par\nobreak
+		\vskip 7\p@
 }}
 \def\@schapter#1{\@makeschapterhead{#1}%
-	\@afterheading}
+%	\@afterheading
+}
 \def\@makeschapterhead#1{%
-%	\vspace*{50\p@}%
-	{\parindent \z@ \raggedright
-		\normalfont
+	\vspace*{48\p@}%
+	{%\parindent \z@ \raggedright% \normalfont
 		\interlinepenalty\@M
-		\Huge\centering #1\par\nobreak
-		\vskip 10\p@
+		\centering\chapter@font{#1}%\par\nobreak
+		\vskip 7\p@
 }}
-
-% \def\ps@headings{%
-% 	\let\@oddfoot\@empty\let\@evenfoot\@empty
-% 	\def\@evenhead{\thepage\hfil\itshape\leftmark\hfil}%
-% 	\def\@oddhead{{\hfil\itshape\leftmark}\hfil\thepage}%
-% 	\let\@mkboth\markboth
-% 	\def\chaptermark##1{%
-% 		\markboth {##1}{}}}
 %
-% \def\ps@myheadings{%
-% 	\let\@oddfoot\@empty\let\@evenfoot\@empty
-% 	\def\@evenhead{\thepage\hfil\itshape\leftmark\hfil}%
-% 	\def\@oddhead{{\hfil\itshape\leftmark}\hfil\thepage}%
-% 	\let\@mkboth\@gobbletwo
-% 	\let\chaptermark\@gobble
-% }
+ \def\ps@headings{%
+ 	\def\@evenhead{\vbox{\hbox to\hsize{\thepage\hfil\itshape\leftmark\hfil}
+ 	\vspace{4pt} \hbox to \hsize{\hrulefill}}}%
+ 	\def\@oddhead{\vbox{\hbox to\hsize{\hfil{\itshape\leftmark}\hfil\thepage}
+ 	\vspace{4pt} \hbox to \hsize{\hrulefill}}}% 	
+ %	\let\@mkboth\markboth
+ 	\def\chaptermark##1{%
+ 		\markboth {##1}{}}
+ 	}
 %
-\RequirePackage{fancyhdr}
-\pagestyle{fancy}
-\renewcommand{\chaptermark}[1]{ \markboth{#1}{} }
-\fancyhf{}
-\fancyhead[LE,RO]{\thepage}
-\fancyhead[CE,CO]{{\itshape\nouppercase{\leftmark}}}
-
-\newcommand{\questionno}[1]{\fboxsep=10pt\fbox{\fontsize{13.5pt}{12pt}\selectfont{\#{#1}}}}
-\newcommand{\answerno}[1]{\fboxsep=7pt\fbox{\fontsize{11pt}{12pt}\selectfont{\#{#1}}}}
+\RequirePackage{tikz}
+\newcommand{\questionno}[1]{%
+	\begin{tikzpicture}[line width=1pt,scale=1.2]
+	%\draw[thick]
+	\draw (0,0.5) -- (0,1) -- (1,1) -- (1,0) -- (0.5,0);% -- (0,0.4);%
+	%\draw (0,0.4) .. controls (0,1) and (2,1) .. (0.4,0);
+	\draw (0,0.5) arc [start angle=-180, end angle=-90, radius=0.5] -- (0.5,0);
+	\draw[red] (0,0.45) -- (0,0) -- (0.45,0);
+	\draw (0.5,0.5) node {\question@font{\#{#1}}};
+	%\draw (0.4,0) parabola (0,0.4);
+	%\question@font{\#{#1}} 
+	\end{tikzpicture}}
+\newcommand{\answerno}[1]{%
+	\begin{tikzpicture}[line width=0.8pt]
+	%\draw[thick]
+	\draw[red] (0,0.5) -- (0,1) -- (1,1) -- (1,0) -- (0.5,0);% -- (0,0.4);%
+	%\draw (0,0.4) .. controls (0,1) and (2,1) .. (0.4,0);
+	\draw[red] (0,0.5) arc [start angle=-180, end angle=-90, radius=0.5] -- (0.5,0);
+	\draw (0,0.45) -- (0,0) -- (0.45,0);
+	\draw (0.5,0.5) node {\answer@font{\#{#1}}};
+	%\draw (0.4,0) parabola (0,0.4);
+	%\question@font{\#{#1}} 
+	\end{tikzpicture}}
 	
-%\pagestyle{headings}
+\pagestyle{headings}
 \pagenumbering{arabic}
 
- \endinput
+\endinput
