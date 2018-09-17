@@ -1,0 +1,81 @@
+\documentclass{article}
+
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+\begin{document}
+
+%Numbered list.png
+
+\setlist[enumerate,1]{font=\bfseries,leftmargin=*,labelsep=6pt,parsep=0pt,itemsep=0pt}
+\setlist[enumerate,2]{font=\bfseries,label={\alph*.},leftmargin=*,labelsep=5pt,parsep=0pt,itemsep=0pt}
+\setlist[enumerate,3]{font=\bfseries,label={-},leftmargin=*,labelindent=2pt,labelsep=8pt,parsep=0pt,itemsep=0pt}
+
+Aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa convalis aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa	
+\begin{enumerate}
+	\item Aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa
+	\item Quisque bbbbbbb bbbbbbb bbbbbbb bbbbbbb bbbbbbb
+	\begin{enumerate}
+		\item Aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa
+		\item Maecenas bbbbbb bbbbbbb bbbbbbb bbbbbbb bbbbbbb
+		\begin{enumerate}
+			\item Quisque aaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa
+			\item Bbbbbbb bbbbbbb bbbbbbb bbbbbbb bbbbbbb
+		\end{enumerate}
+	\end{enumerate}
+\end{enumerate}
+Bbbbbbb bbbbbbb bbbbbbb bbbbbbb bbbbbbb bbbbbbb bbbbbbb bbbbbbb bbbbbbb bbbbbbb bbbbbbb bbbbbbb bbbbbbb bbbbbbb bbbbbbb
+
+
+\bigskip
+\bigskip
+
+%Bullet_list.png
+
+\setlist[itemize,1]{leftmargin=*,labelsep=10pt,rightmargin=15pt,parsep=0pt,itemsep=0pt}
+\setlist[itemize,2]{label={\color{gray}{$\bullet$}},leftmargin=*,labelsep=10pt,parsep=0pt,itemsep=0pt}
+\setlist[itemize,3]{label={-},leftmargin=*,labelindent=2pt,labelsep=8pt,parsep=0pt,itemsep=0pt}
+
+\noindent pellentesque  aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaaaaaa ligula.
+\begin{itemize}
+	\item Maecenas aaaaaaa aaaaaaa aaaaaaa aaaaaaa
+	\item Sed aaaaaaa aaaaaaa aaaaaaa aaaaaaa. AAAAAAAAA aaa aaa aaa aaa aaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa
+\begin{itemize}
+	\item Maecenas  aaaaaaa aaaaaaa aaaaaaa aaa aaaa aaa aaaa aaa aaaa aaaa aaa aaaaaaa aaaaaaa aaaaaaa.
+	\item Maecenas aaaaaaa aaaaaaa aaaaaaa aaaaaaa.
+	\begin{itemize}
+		\item Quisque  aaaaaaa aaaaaaa aaaaaaa aaaaaaa aaa aaaa aaa aaaa aaaa aaa aaaaaaa aaaaaaa aaaaaaa.
+	\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\bigskip
+\bigskip
+
+%Unnumbered_list.png
+
+%itemsep=30pt daro tarpa tarp item
+%topsep=30pt daro tarpa pries itemize
+\setlist[description,1]{leftmargin=*,labelindent=10pt,rightmargin=15pt,parsep=0pt,itemsep=0pt}
+\setlist[description,2]{leftmargin=*,labelindent=10pt,parsep=0pt,itemsep=0pt}
+\setlist[description,3]{leftmargin=*,labelindent=10pt,parsep=0pt,itemsep=0pt}
+
+\noindent elit elit  elit elit elit elit elit elit elit elit elit elit elit elit elit elit elit elit elit elit elit. elit elit
+\begin{description}
+	\item[] Maecenas aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
+	\item[] Maecenas
+	\item[] Quisque
+	\begin{description}
+		\item[] Maecenas aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa 
+		\item[] Maecenas 
+		\item[] Quisque
+		\begin{description}
+			\item[] Maecenas aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa
+			\item[] Maecenas
+			\item[] Quisque
+		\end{description}
+	\end{description}
+\end{description}
+Aaaaaaa aaaaa aaaaaa aaaaa
+
+\end{document}
